@@ -1,0 +1,12 @@
+<div class="user-container">
+  <button class="user-button" mat-button [mat-menu-trigger-for]="userMenu">
+    <a id="user-badge" class="user-badge"><mat-icon> person_pin</mat-icon></a>
+    <h3>{{username}}</h3>
+    <mat-menu class="user-menu" #userMenu="matMenu" xPosition="before">
+      <button class="user-menu-item" routerLink="/cart" mat-menu-item><mat-icon>shopping_cart</mat-icon>My Cart</button>
+      <button *ngIf="isAdmin" class="user-menu-item" routerLink="/admin" mat-menu-item><mat-icon>add</mat-icon>Add Product</button>
+      <mat-divider></mat-divider>
+      <button class="user-menu-item logout" (click)="onLogOut()" mat-menu-item>Sign Out</button>
+    </mat-menu>
+  </button>
+</div>

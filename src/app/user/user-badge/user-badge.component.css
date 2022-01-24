@@ -1,0 +1,68 @@
+.user-button {
+  background-color: var(--overlayLight);
+  margin-right: 10px;
+  border-radius: 100vw;
+  padding-right: 2px;
+}
+
+.user-container h3 {
+  float: right;
+  max-width: calc(40vw - 100px);;
+  height: 50px;
+  margin: 2px 15px 2px 0;
+  color: var(--appWhite);
+  line-height: 50px;
+  font-size: 20px;
+  pointer-events: none;
+  user-select: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.user-badge {
+  width: 50px;
+  height: 50px;
+  background-color: var(--bright);
+  float: right;
+  margin: 2px 0;
+  text-align: center;
+  border-radius: 100vw;
+  font-size: 35px;
+  line-height: 50px;
+  color: var(--appWhite);
+  font-family: Arial;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+.user-menu-item {
+  font-size: 16px;
+}
+
+.logout {
+  background-color: var(--anthony);
+  opacity: 0.7;
+}
+
+.logout:hover {
+  background-color: var(--anthony);
+  opacity: 0.8;
+}
+
+mat-divider {
+  margin: 10px;
+}
+
+app-upload-track {
+  margin: 0 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .user-container h3 {
+    max-width: 35vw;
+  }
+}

@@ -1,0 +1,29 @@
+<app-header></app-header>
+<button class="back" mat-button (click)="onClickBack()"><mat-icon>arrow_back_ios</mat-icon> Back to shop</button>
+<button class="cloud" mat-button (click)="onClickCloud()">Save cart in cloud<mat-icon>cloud_queue</mat-icon></button>
+
+<mat-divider></mat-divider>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Amount</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let product of cartProducts">
+    <td>{{product.title}}</td>
+    <td>€ {{product.price}}</td>
+    <td>{{getAmountFromId(product.id)}}</td>
+    <td>
+      <button mat-button (click)="onClickMore(product.id)"><mat-icon>add</mat-icon></button>
+      <button *ngIf="getAmountFromId(product.id) > 1" mat-button (click)="onClickLess(product.id)"><mat-icon>remove</mat-icon></button>
+      <button *ngIf="getAmountFromId(product.id) == 1" mat-button (click)="onClickLess(product.id)"><mat-icon>delete_outline</mat-icon></button>
+    </td>
+  </tr>
+</table>
+
+<div class="button-container">
+  <button [disabled]="isEmpty()" class="place-order" mat-button (click)="onPlaceOrder()">Place Order</button>
+</div>
+

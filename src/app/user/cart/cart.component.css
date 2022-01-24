@@ -1,0 +1,56 @@
+.back {
+  margin: 25px 0 0 25px;
+}
+
+.cloud {
+  float: right;
+  margin: 25px 25px 0 0;
+}
+
+.cloud mat-icon {
+  margin-left: 10px;
+}
+
+mat-divider {
+  margin: 25px 0;
+}
+
+table {
+  width: 90%;
+  margin: 0 5%;
+}
+
+button {
+  padding: 0;
+  min-width: 36px;
+}
+
+td {
+  text-align: center;
+  width: 72px;
+  padding: 10px;
+  line-height: 36px;
+}
+
+td:first-of-type {
+  width: calc(100% - 216px);
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f9fafc;
+}
+
+.place-order {
+  width: 40%;
+  margin: 20px 30%;
+  background-color: #3c8091;
+  color: #FAFAFA;
+}
+
+button {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+

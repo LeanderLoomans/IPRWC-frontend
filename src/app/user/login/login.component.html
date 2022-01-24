@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card>
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (keydown.enter)="onLogin()">
+      <div class="input-fields">
+        <div class="textFields">
+          <mat-form-field matInput appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input formControlName="email" type="text" matInput required>
+            <mat-error></mat-error>
+          </mat-form-field>
+
+          <mat-form-field matInput appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" type="password" matInput [type]="hidePassword ? 'password' : 'text'" required>
+            <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </button>
+            <mat-error></mat-error>
+          </mat-form-field>
+        </div>
+        <div class="button-group">
+          <ul>
+            <li><button type="button" class="link float-left" routerLink="/register" mat-flat-button color="primary">Register</button></li>
+          </ul>
+          <button [disabled]="!checkFormValidity()" class="form-button float-right" type="submit" mat-flat-button color="primary" autofocus (click)="onLogin()">Login</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<!--<app-background></app-background>-->

@@ -1,0 +1,30 @@
+<app-header></app-header>
+<mat-card>
+  <h1>{{title}}</h1>
+  <form [formGroup]="productForm" (keydown.enter)="onSubmit()">
+    <div class="input-fields">
+      <div class="textFields">
+
+        <mat-form-field matInput appearance="outline">
+          <mat-label>Title</mat-label>
+          <input formControlName="title" type="text" matNativeControl required>
+          <mat-error></mat-error>
+        </mat-form-field>
+
+        <mat-form-field matInput appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea formControlName="description" type="text" matNativeControl required></textarea>
+          <mat-error></mat-error>
+        </mat-form-field>
+
+        <mat-form-field matInput appearance="outline">
+          <mat-label>Price</mat-label>
+          <input formControlName="price" type="number" matInput required>
+          <mat-error></mat-error>
+        </mat-form-field>
+
+        <button [disabled]="!checkFormValidity()" class="form-button float-right" type="submit" mat-flat-button color="primary" autofocus (click)="onSubmit()">Submit</button>
+      </div>
+    </div>
+  </form>
+</mat-card>
