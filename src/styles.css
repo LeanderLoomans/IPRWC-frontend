@@ -7,7 +7,7 @@
   --mainLight: #BADC9F;
   --text: #63D902;
   --button: #51B302;
-  --bright: #5fd300;
+  --bright: rgba(0, 0, 0, 0.11);
   --dim: #477324;
   --brightContrast: #1BAFF2;
   --dimContrast: #3473BE;

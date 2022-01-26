@@ -27,6 +27,10 @@ import {AuthInterceptor} from "./auth.interceptor";
 import {CdkTableModule} from "@angular/cdk/table";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import {LoadingSpinnerComponent} from "./shared/loading-spinner/loading-spinner.component";
+import { InfoComponent } from './main/info/info.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { BackgroundComponent } from './user/background/background.component';
 
 
 @NgModule({
@@ -40,6 +44,9 @@ import {MatSortModule} from "@angular/material/sort";
     UserBadgeComponent,
     HeaderComponent,
     ProductsComponent,
+    LoadingSpinnerComponent,
+    InfoComponent,
+    BackgroundComponent
   ],
     imports: [
         BrowserModule,
@@ -59,7 +66,8 @@ import {MatSortModule} from "@angular/material/sort";
         MatDividerModule,
         CdkTableModule,
         MatTableModule,
-        MatSortModule
+        MatSortModule,
+        MatTabsModule
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

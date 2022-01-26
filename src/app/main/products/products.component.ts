@@ -13,10 +13,12 @@ export class ProductsComponent implements OnInit {
 
   products: any;
   isAdmin: boolean;
+  isLoading: boolean;
 
   constructor(private httpService: HttpService, private userService: UserService, private snackbar: SnackbarService, private router: Router) {
     this.products = [];
     this.isAdmin = false;
+    this.isLoading = true;
   }
 
   ngOnInit(): void {
@@ -28,11 +30,17 @@ export class ProductsComponent implements OnInit {
     this.httpService.get('product/').subscribe(
       res => {
         this.products = res.data;
+        this.isLoading = false;
       },
       error => {
         this.snackbar.showMessage("Products could not be fetched...");
+        this.isLoading = false;
       }
     )
+  }
+
+  roundPrice(price: number) {
+    return price.toFixed(2)
   }
 
   onAddProduct(id: number) {

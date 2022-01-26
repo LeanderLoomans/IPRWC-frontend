@@ -5,3 +5,7 @@ mat-form-field {
 button {
   float: none;
 }
+
+textarea {
+  height: 250px;
+}

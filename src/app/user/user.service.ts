@@ -20,7 +20,7 @@ export class UserService {
       (res: any) => {
         this.saveJwt(res);
         console.log(res.user.info);
-        let cart = JSON.parse(res.user.info);
+        let cart = JSON.stringify(res.user.info);
         console.log(cart);
 
         this.saveCart(cart);

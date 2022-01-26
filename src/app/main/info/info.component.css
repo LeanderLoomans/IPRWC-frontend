@@ -1,0 +1,14 @@
+.info-container {
+  margin: 40px auto;
+  width: 70%;
+  max-width: 1200px;
+  padding: 40px;
+  background-color: lightsteelblue;
+}
+
+.info-container p {
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #525252;
+}

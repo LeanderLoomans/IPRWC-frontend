@@ -29,7 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/particles/particles.min.js"]
           },
           "configurations": {
             "production": {

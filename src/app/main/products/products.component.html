@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isLoading">
   <mat-card
     *ngFor="let product of products">
     <mat-card-title>{{product.title}}</mat-card-title>
@@ -10,7 +10,7 @@
       class="add-button"
     >
       <mat-icon>add_shopping_cart</mat-icon>
-      €{{product.price}}
+      €{{roundPrice(product.price)}}
     </button>
     <button
       *ngIf="isAdmin"
@@ -24,3 +24,4 @@
     </mat-menu>
   </mat-card>
 </div>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

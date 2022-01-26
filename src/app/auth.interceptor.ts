@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import { UserService} from "./user/user.service";
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ) { }
 
 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.checkUserLoggedIn()) {
       return next.handle(req);
     }
@@ -22,6 +22,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(tokenReq).pipe(
       catchError(err => {
+        if (err.status === 401) {
+          this.userService.logout();
+        }
         return throwError(err);
       })
     );

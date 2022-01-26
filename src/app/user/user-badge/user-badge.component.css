@@ -7,7 +7,7 @@
 
 .user-container h3 {
   float: right;
-  max-width: calc(40vw - 100px);;
+  max-width: calc(30vw - 100px);;
   height: 50px;
   margin: 2px 15px 2px 0;
   color: var(--appWhite);
@@ -23,7 +23,7 @@
 .user-badge {
   width: 50px;
   height: 50px;
-  background-color: var(--bright);
+  background-color: rgba(0, 0, 0, 0.29);
   float: right;
   margin: 2px 0;
   text-align: center;
