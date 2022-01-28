@@ -19,11 +19,9 @@ export class UserService {
     return this.api.post(this.resourcePath + '/login', user).subscribe(
       (res: any) => {
         this.saveJwt(res);
-        console.log(res.user.info);
-        let cart = JSON.stringify(res.user.info);
-        console.log(cart);
-
+        let cart = JSON.parse(res.user.info);
         this.saveCart(cart);
+
         loginCallback();
       },
       error => {
@@ -61,7 +59,7 @@ export class UserService {
 
   addToCart(id: number) {
     let cart = this.getCart();
-
+    
     const productIndex = cart.products.indexOf(id);
 
     if (productIndex === -1) {

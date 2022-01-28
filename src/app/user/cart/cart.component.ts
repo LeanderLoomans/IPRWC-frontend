@@ -78,6 +78,6 @@ export class CartComponent implements OnInit {
   }
 
   isEmpty() {
-    return this.cart.products.length == 0;
+    return !this.cartProducts.length;
   }
 }

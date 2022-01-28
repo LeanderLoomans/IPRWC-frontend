@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'https://aquilla.nl:3443/'
+  backendUrl: 'http://localhost:3000/'
 };
 
 /*

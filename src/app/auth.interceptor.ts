@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import { UserService} from "./user/user.service";
 import { catchError } from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
 
@@ -22,8 +24,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(tokenReq).pipe(
       catchError(err => {
-        if (err.status === 401) {
+        if (err instanceof HttpErrorResponse && err.status === 401) {
           this.userService.logout();
+          this.router.navigate(['/login'])
         }
         return throwError(err);
       })
